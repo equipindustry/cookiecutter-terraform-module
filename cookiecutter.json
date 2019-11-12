@@ -1,0 +1,13 @@
+{
+  "company": "hadenlabs",
+  "email": "slovacus@gmail.com",
+  "full_name": "Luis Mayta",
+  "group_name": "hadenlabs",
+  "license": "Mit",
+  "project_name": "name of project",
+  "release_date": "2018-11-17",
+  "repo_name": "terraform-module",
+  "short_description": "Terraform Module",
+  "version": "0.0.0",
+  "year": "2019"
+}

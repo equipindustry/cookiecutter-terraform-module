@@ -1,9 +1,8 @@
-FROM python:3.8.0-slim
+FROM equipindustry/python:3.8.0-slim
 
 MAINTAINER Luis Mayta <@slovacus>
 
 ARG stage
-ARG version
 LABEL NAME cookiecutter-terraform-module-check-$stage
 
 COPY Pipfile* /usr/src/

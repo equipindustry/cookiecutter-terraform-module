@@ -1,4 +1,4 @@
-FROM python:3.8.0-slim
+FROM equipindustry/python:3.8.0-slim
 
 MAINTAINER Luis Mayta <@slovacus>
 
@@ -9,15 +9,8 @@ LABEL NAME cookiecutter-terraform-module-app-$stage
 ENV USERNAME developer
 
 ENV PACKAGES bash \
-  git \
-  gcc \
-  libc-dev \
-  make \
-  musl-dev \
-  openssl \
-  gcc \
-  libgdal20 \
-  libev-dev
+  openssl
+
 
 COPY Pipfile* /usr/src/
 
@@ -26,7 +19,6 @@ WORKDIR /usr/src/
 
 RUN apt-get update -y \
   && apt-get install -y ${PACKAGES} --no-install-recommends \
-
 
   # Permissions
   && groupadd -g 500 -r python \

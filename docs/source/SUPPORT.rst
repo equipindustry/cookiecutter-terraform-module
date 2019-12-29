@@ -21,7 +21,7 @@ And place the private key in "aws_key_path" and the public key in
 
 In "aws_alb_priority" within the variable.tf file, it has to be listed according
 to the excel called Access in the "AWS ALB" sheet (This file is located inside
-the luismayta drive), Then we proceed to generate the server's terraform-aws-s3-cloudfront-website by executing
+the equipindustry drive), Then we proceed to generate the server's terraform-aws-s3-cloudfront-website by executing
 the following codes:
 
 Activate the Terraform modules with terragrunt.init:

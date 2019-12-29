@@ -17,7 +17,7 @@ else
 	PIPENV_INSTALL:=
 endif
 
-TEAM := hadenlabs
+TEAM := equipindustry
 PROJECT := cookiecutter-terraform-module
 PROJECT_PORT := 8000
 

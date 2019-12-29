@@ -1,37 +1,31 @@
-# Config file for automatic testing at travis-ci.org
+---
+language: python
 
-sudo: true
-dist: trusty
+python:
+  - 3.8
+
+sudo: false
 
 services:
   - docker
 
-language: python
-
-python:
-  - "3.4"
-  - "3.5"
-  - "3.6"
-  - "3.7"
-
+# Docker-compose setup
+# https://docs.travis-ci.com/user/docker/
 env:
-  - DOCKER_COMPOSE_VERSION=1.16.1
+  global:
+    - DOCKER_COMPOSE_VERSION=1.23.2
 
 before_install:
   - sudo rm /usr/local/bin/docker-compose
-  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose-bin
-  - chmod +x docker-compose-bin
-  - sudo mv docker-compose-bin /usr/local/bin/docker-compose
-  - docker-compose -v
-  - docker -v
+  - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
+  - chmod +x docker-compose
+  - sudo mv docker-compose /usr/local/bin
+  - cp -rf .env.example .env
 
+# install dependences
 install:
-  - cp .env-sample .env
-  - make docker.build env=test
+  - make setup
 
-before_script:
-  - make install env=test
-  - make test.lint
-
+# execute test
 script:
-  - make test.syntax
+  - make test.all
